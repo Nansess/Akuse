@@ -16,15 +16,10 @@ const STORE = new Store();
 app.commandLine.appendSwitch('disable-features', 'OutOfBlinkCors');
 
 // const authUrl = `https://anilist.co/api/v2/oauth/authorize?client_id=${clientData.clientId}&redirect_uri=${(isAppImage || !(app.isPackaged)) ? clientData.redirectUriAppImage : clientData.redirectUri}&response_type=code`;
-const authUrl =
-  'https://anilist.co/api/v2/oauth/authorize?client_id=' +
-  clientData.clientId +
-  '&redirect_uri=' +
-  clientData.redirectUri +
-  '&response_type=code';
-// autoUpdater.autoDownload = false;
-// autoUpdater.autoInstallOnAppQuit = true;
-// autoUpdater.autoRunAppAfterInstall = true;
+const clientId = '18924'; // Hardcoded client ID
+const redirectUri = 'akuse://index';
+const authUrl = `https://anilist.co/api/v2/oauth/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=code`;
+
 
 class AppUpdater {
   constructor() {
