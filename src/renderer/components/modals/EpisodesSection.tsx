@@ -62,24 +62,26 @@ const EpisodesSection: React.FC<EpisodesSectionProps> = ({
   return (
     <div className="episodes-section">
       <div className="episodes-scroller">
-        <div className="episodes-options">
-          <h2>Episodes</h2>
-          <div className="right">
-            {episodes > EPISODES_PER_PAGE && (
-              <select
-                className="main-select-0"
-                onChange={handleChange}
-                value={activeSection}
-              >
-                {pages.map((page, index) => (
-                  <option key={index} value={index}>
-                    {`${page[0]} - ${page.slice(-1)}`}
-                  </option>
-                ))}
-              </select>
-            )}
+        {episodes > 0 && (
+          <div className="episodes-options">
+            <h2>Episodes</h2>
+            <div className="right">
+              {episodes > EPISODES_PER_PAGE && (
+                <select
+                  className="main-select-0"
+                  onChange={handleChange}
+                  value={activeSection}
+                >
+                  {pages.map((page, index) => (
+                    <option key={index} value={index}>
+                      {`${page[0]} - ${page.slice(-1)}`}
+                    </option>
+                  ))}
+                </select>
+              )}
+            </div>
           </div>
-        </div>
+        )}
 
         <div className="episodes">
           {pages.length !== 0 &&
@@ -122,6 +124,7 @@ const EpisodesSection: React.FC<EpisodesSectionProps> = ({
     </div>
   );
 };
+
 
 export default EpisodesSection;
 
